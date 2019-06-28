@@ -19,9 +19,11 @@ test_image:
     - export DOCKER_BUILDKIT=1
     - echo $STEAM_USERNAME > steam_username
     - echo $STEAM_PASSWORD > steam_password
-    - docker build --secret id=steam_username,src=steam_username --secret id=steam_password,src=steam_password --pull -t $TEST_IMAGE_TAG .
+    - echo $STEAM_GUARD_CODE > steam_guard_code
+    - docker build --secret id=steam_username,src=steam_username --secret id=steam_password,src=steam_password --secret id=steam_guard_code,src=steam_guard_code --pull -t $TEST_IMAGE_TAG .
     - rm steam_username
     - rm steam_password
+    - rm steam_guard_code
     - docker push $TEST_IMAGE_TAG
     - docker rmi $TEST_IMAGE_TAG
 
