@@ -7,7 +7,7 @@ RUN apt-get update && \
                        lib32gcc1
 
 # Get steamcmd to /opt
-RUN wget -qO- /opt https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar zx
+RUN wget -qO- /opt https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -zxC /opt
 RUN ls -la /opt
 
 # Get dedicated server files with steamcmd to /srv
