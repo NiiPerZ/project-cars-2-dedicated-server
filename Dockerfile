@@ -21,7 +21,8 @@ RUN --mount=type=secret,id=steam_username \
 FROM alpine:3.10
 
 # Install dependencies
-RUN apk add libstdc++
+RUN apk add libstdc++ \
+            libc6-compat
 
 # Get files to /opt
 COPY --from=files /srv /opt
