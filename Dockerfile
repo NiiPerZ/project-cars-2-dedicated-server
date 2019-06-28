@@ -6,4 +6,11 @@ RUN cd /opt && \
     tar -zxf pc2ds.tar.gz && \
     rm pc2ds.tar.gz
 
+# Include server.cfg
+COPY server.cfg /opt
+
+WORKDIR /opt
+
+EXPOSE 8766 27015 27016 9000
+
 CMD /opt/DedicatedServerCmd.elf
