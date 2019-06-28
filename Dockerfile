@@ -3,7 +3,8 @@ RUN apt-get update && \
     apt-get install -y wget \
                        lib32gcc1
 RUN cd /opt && \
-    wget -qO- https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar zx && \
+    wget -qO- /opt https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar zx && \
     ls -la
-RUN /opt/steamcmd.sh
+RUN /opt/steamcmd.sh +force_install_dir /srv +app_update 413770 -validate
+RUN ls -la /srv
 CMD /bin/sh
