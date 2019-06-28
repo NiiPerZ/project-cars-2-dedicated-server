@@ -4,5 +4,5 @@ RUN apt-get update && \
 RUN cd /opt && \
     wget -qO- https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar zx && \
     ls -la && \
-    ./steamcmd.sh
+RUN /opt/steamcmd.sh
 CMD /bin/sh
