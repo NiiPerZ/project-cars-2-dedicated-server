@@ -18,13 +18,13 @@ STEAM_USERNAME=steamusernamegoeshere
 2. Fetch the updated file and tidy up
 ```
 sudo apt install -y lib32gcc1 && \
-mkdir /tmp/steamcmd/ && \
-wget -qO- https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -zxC /tmp/steamcmd/ && \
-/tmp/steamcmd/steamcmd.sh +login $STEAM_USERNAME +force_install_dir /tmp/steamcmd/pc2ds/ +app_update 413770 validate +quit && \
-cd /tmp/steamcmd/pc2ds/ && \
+mkdir /tmp/steamcmd && \
+wget -qO- https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -zxC /tmp/steamcmd && \
+/tmp/steamcmd/steamcmd.sh +login $STEAM_USERNAME +force_install_dir /tmp/steamcmd/pc2ds +app_update 413770 validate +quit && \
+cd /tmp/steamcmd/pc2ds && \
 tar -zcf /tmp/steamcmd/pc2ds.tar.gz * && \
 cd - && \
 mv /tmp/steamcmd/pc2ds.tar.gz . && \
-rm -r /tmp/steamcmd/ && \
+rm -r /tmp/steamcmd && \
 unset STEAM_USERNAME
 ```
