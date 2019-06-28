@@ -22,7 +22,8 @@ FROM alpine:3.10
 
 # Install dependencies
 RUN apk add libstdc++ \
-            libc6-compat
+            libc6-compat \
+            gcompat
 
 # Get files to /opt
 COPY --from=files /srv /opt
