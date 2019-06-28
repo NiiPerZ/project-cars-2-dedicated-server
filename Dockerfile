@@ -1,6 +1,6 @@
 FROM ubuntu:18.04 AS stubby
-RUN ls -la
 RUN cd /opt && \
+    wget -qO- https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar zx && \
+    ./steamcmd && \
     ls -la
-RUN ls -la
 CMD /bin/sh
