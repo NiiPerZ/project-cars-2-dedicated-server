@@ -19,5 +19,6 @@ RUN --mount=type=secret,id=steam_username \
 FROM alpine:3.10
 COPY --from=dedicated-server /srv /opt
 RUN ls -la /opt
+RUN ldd /opt/DedicatedServerCmd.elf
 RUN /opt/DedicatedServerCmd.elf
 CMD /opt/DedicatedServerCmd.elf
