@@ -6,8 +6,8 @@ RUN apt-get update && \
 RUN cd /opt && \
     wget -qO- /opt https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar zx
 RUN ls -la /opt
-RUN --mount=type=secret,id=steam_username && \
-    --mount=type=secret,id=steam_password && \
+RUN --mount=type=secret,id=steam_username \
+    --mount=type=secret,id=steam_password \
     /opt/steamcmd.sh +login $(cat /run/secrets/steam_username) $(cat /run/secrets/steam_password) +force_install_dir /srv +app_update 413770 validate +quit
 RUN ls -la /srv
 CMD /bin/sh
