@@ -1,4 +1,6 @@
 FROM ubuntu:18.04 AS stubby
+RUN --mount=type=secret,id=steam_username
+RUN cat /run/secrets/steam_username
 RUN apt-get update && \
     apt-get install -y wget \
                        lib32gcc1
