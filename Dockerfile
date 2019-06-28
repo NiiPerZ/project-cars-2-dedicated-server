@@ -20,22 +20,7 @@ RUN --mount=type=secret,id=steam_username \
 # Runtime image
 FROM ubuntu:18.04
 
-# Install dependencies
-#RUN apk add libstdc++ \
-#            libc6-compat \
-#            gcompat
-#
-# Install glibc
-#RUN apk --no-cache add ca-certificates wget && \
-#    wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
-#    wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.29-r0/glibc-2.29-r0.apk && \
-#    apk add glibc-2.29-r0.apk && \
-#    rm glibc-2.29-r0.apk
-
 # Get files to /opt
 COPY --from=files /srv /opt
-RUN ls -la /opt
-RUN ldd /opt/DedicatedServerCmd.elf
-RUN /opt/DedicatedServerCmd.elf
 
 CMD /opt/DedicatedServerCmd.elf
