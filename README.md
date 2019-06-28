@@ -10,7 +10,7 @@ importantly Steam Guard code can be entered if needed (might not be needed if
 ran more than once, due to a cookie/token being created on the first run, that
 steamcmd will utilise).
 
-1. Specify an enviromental variable 
+1. Specify an enviromental variable to hold your steam username
 ```
 STEAM_USERNAME=steamusernamegoeshere
 ```
