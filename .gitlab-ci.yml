@@ -18,7 +18,10 @@ test_image:
   script:
     - export DOCKER_BUILDKIT=1
     - echo $STEAM_USERNAME > steam_username
-    - docker build --secret id=steam_username,src=steam_username --pull -t $TEST_IMAGE_TAG .
+    - echo $STEAM_PASSWORD > steam_password
+    - docker build --secret id=steam_username,src=steam_username --secret id=steam_password,src=steam_password --pull -t $TEST_IMAGE_TAG .
+    - rm steam_username
+    - rm steam_password
     - docker push $TEST_IMAGE_TAG
     - docker rmi $TEST_IMAGE_TAG
 
