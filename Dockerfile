@@ -1,5 +1,9 @@
 FROM ubuntu:18.04
 
+# Install dependancies
+RUN apt-get update && \
+    apt-get install -y ca-certificates
+
 # Extract dedicated server files to /opt
 COPY pc2ds.tar.gz /opt
 RUN cd /opt && \
@@ -11,6 +15,6 @@ COPY server.cfg /opt
 
 WORKDIR /opt
 
-EXPOSE 8766 27015 27016 9000
+EXPOSE 8766 27015 27016 80
 
 CMD /opt/DedicatedServerCmd.elf
